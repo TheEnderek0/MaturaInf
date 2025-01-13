@@ -26,3 +26,9 @@ with open("./test.db", "rb") as file:
 
 print("Loaded table from file:")
 print(mytable2)
+
+print(mytable2[10]["imie"])
+
+mytable2[10]["ID"] = 3
+
+print(mytable2)

@@ -150,6 +150,12 @@ class Row():
             printa(f"Overwriting cell value of column |{column_name}|!")
         
         self.data[column_name] = value
+    
+    def __getitem__(self, key):
+        return self.data[key]
+
+    def __setitem__(self, key, value):
+        self.add_cell(key, value)
 
     def as_dict(self) -> dict:
         return self.data.copy()
@@ -193,6 +199,9 @@ class Structure():
 
         self.keyslist = list(self.columns.keys())
         self.rows = []
+
+    def __getitem__(self, key):
+        return self.get_row_by_id(key)
 
     def get_row_by_id(self, id_: int):
         for row in self.rows:

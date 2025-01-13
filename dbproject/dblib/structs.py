@@ -165,7 +165,12 @@ class Structure():
         self.__init__internal(kwargs)
 
     def __init__internal(self, kwargs_dict):
-        self.columns = kwargs_dict
+        if ID_ROW_NAME in list(kwargs_dict.keys()).copy():
+            del kwargs_dict[ID_ROW_NAME]
+
+        t = {ID_ROW_NAME: None}
+        t.update(kwargs_dict)
+        self.columns = t
         
         #Ensure we only have a max of 255 columns
         if len(self.columns.keys()) > 255:
@@ -181,12 +186,12 @@ class Structure():
                 printa(f"Type {type(defval)} is unsupported!", 1)
                 del self.columns[key]
 
-        self.last_row = 0
+        self.last_row = 1
 
 
 
 
-        self.keyslist = [ID_ROW_NAME] + list(self.columns.keys())
+        self.keyslist = list(self.columns.keys())
         self.rows = []
 
     def get_row_by_id(self, id_: int):

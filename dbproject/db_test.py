@@ -10,18 +10,19 @@ mytable.add_row(db.Row(nazwisko="Blad"))
 mytable.delete_row(1)
 mytable.add_row(db.Row(ID = 1, imie="Anna", nazwisko="Wielka"))
 mytable.add_row(db.Row(ID = 10, imie="Anna", nazwisko="August"))
+print("Created table:")
 print(mytable)
 
 mytable.sort_rows()
-print(mytable)
+#print(mytable)
 
-#mytable2 = db.Structure()
+mytable2 = db.Structure()
 
-#with open("./test.db", "wb") as file:
-#    file.write(mytable.serialize())
+with open("./test.db", "wb") as file:
+    file.write(mytable.serialize())
 
-#with open("./test.db", "rb") as file:
-#    mytable2.deserialize(file)
+with open("./test.db", "rb") as file:
+    mytable2.deserialize(file)
 
-
-#print(mytable2)
+print("Loaded table from file:")
+print(mytable2)

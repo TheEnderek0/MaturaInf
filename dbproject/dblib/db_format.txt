@@ -1,0 +1,33 @@
+
+This is the format of the database files used by dbproject/dblib:
+
+Note: pascal_strings are encoded with a size of integer in front, 4 bytes
+
+
+
+
+
+unsigned long long column_header_size // The size in bytes of the column header**s** block below
+column_headers {
+    column {
+        unsigned long long column_block_size // The size in bytes of the column block
+        char column_id
+        pascal_string column_name
+        pascal_string defvalue_type // Could be "pascal_string", "int", "float", "bool", "NoneType" (in case of which bytes defvalue doesn't exist) or other
+        bytes defvalue
+    } * x
+}
+
+
+unsigned long long row_blocks_size // The size of the whole section that houses row_blocks
+row_blocks {
+    row_block {
+        unsigned long long row_block_size // The size of the row block below
+        cell {
+            unsigned long long cell_size // The size of the cell
+            char column_id
+            pascal_string value_type // The type of the value, same stuff as in the column block
+            bytes value // No value size is specified as the program will read until it hits the row_block_size
+        }
+    }
+}

@@ -25,7 +25,7 @@ for liczba in LICZBY:
         c_najw = najw[ind]
         c_najm = najm[ind]
 
-        mult = len(najw) - ind - 1
+        mult = len(najw) - (ind + 1)
 
         l_najw += c_najw * (10 ** mult)
         l_najm += c_najm * (10 ** mult)

@@ -8,6 +8,7 @@ with open(IN_FILE, "r") as file:
 
 
 
+
 POLA = [x * y for x, y in PROSTOKATY]
 
 print(f"Najmniejsze pole: {min(POLA)}")

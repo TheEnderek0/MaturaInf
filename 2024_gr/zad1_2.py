@@ -12,3 +12,5 @@ if __name__ == "__main__":
     print(J(19))
     print(J(6))
     print(J(42))
+
+

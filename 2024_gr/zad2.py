@@ -15,8 +15,14 @@ def F(x, p):
 print(F(220, 4))
 print(f"Counter:{counter}")
 
-lmao = 99
-while F(lmao, 4):
-    lmao -= 1
+#lmao = 99
+#while F(lmao, 4):
+#    lmao -= 1
 
-print(lmao)
+xnajw = 99
+
+while F(xnajw, 3):
+    xnajw -= 1
+
+
+print(xnajw)
